@@ -4,7 +4,7 @@ from . import views
 from .views import login_view
 
 urlpatterns = [
-    #path('index.html', views.index, name="index"),
+    
     path('contact.html', views.contact, name="contact"),
     path('about.html', views.about, name="about"),
     path('doctor.html', views.doctor, name="doctor"),

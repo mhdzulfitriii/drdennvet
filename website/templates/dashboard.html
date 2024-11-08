@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-4">
+                <div class="card shadow" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Admins</li>
+                        <li class="list-group-item">Total Admin : {{ total_admins }} </li>
+                        <li class="list-group-item text-center">
+                            <a href="{% url 'admin/manage-admin.html' %}"><b>View All Admins</b></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card shadow" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Employees</li>
+                        <li class="list-group-item">Total Employees : {{ total_emp }}</li>
+                        <li class="list-group-item text-center">
+                            <a href="{% url 'admin/manage-employee.html' %}"><b>View All Employees</b></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card shadow" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Employees on Leave (Daywise)</li>
+                        <li class="list-group-item">Today: {{ today_leave }} </li>
+                        <li class="list-group-item">Tomorrow: {{ tomorrow_leave }} </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 bg-white shadow">
+            <div class="col-12">
+                <div class="text-center my-3">
+                    <h4>Employee Leadership Board</h4>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="bg-dark">
+                            <th scope="col">S.No.</th>
+                            <th scope="col">Employee's Id</th>
+                            <th scope="col">Employee's Name</th>
+                            <th scope="col">Employee's Email</th>
+                            <th scope="col">Salary in RM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for emp in employees %}
+                            <tr>
+                                <th>{{ forloop.counter }}.</th>
+                                <th>{{ emp.id }}</th>
+                                <td>{{ emp.name }}</td>
+                                <td>{{ emp.email }}</td>
+                                <td>{{ emp.salary }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Include your footer content here -->
+    </footer>
+
+</body>
+</html>

@@ -122,9 +122,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
-STATIC_ROOT = '/usr/local/lsws/Example/html/drdennvert/static'
+STATIC_ROOT = '/usr/local/lsws/Example/html/drdennvert/public/static'
 
 
 # Default primary key field type
